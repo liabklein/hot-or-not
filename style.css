@@ -1,0 +1,81 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#status {
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+#rating {
+    font-size: 3em; /* Large text for rating */
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #3367D6; /* Example color */
+}
+
+#explanation {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+#details {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: #D32F2F; /* Red for errors */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.chart-container {
+    position: relative; /* Needed for chart responsiveness */
+    margin: 20px auto; /* Add some space */
+    height: 200px;    /* Example height */
+    max-width: 450px; /* Example max width */
+    width: 100%;
+}
+
+/* Ensure canvas resizes correctly */
+canvas {
+    display: block;
+    width: 100% !important; /* Override default inline style */
+    height: 100% !important;
+}
+
+/* Ensure details div is hidden if it exists still */
+#details {
+    display: none;
+}

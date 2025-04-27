@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3367D6"/>
+    <title>Hot or Not?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png"> </head>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@^4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@^3"></script>
+<body>
+    <div class="container">
+        <h1>Hot or Not?</h1>
+
+        <div id="status">Requesting location...</div>
+
+        <div id="result" class="hidden">
+            <div id="rating"></div>
+            <div id="explanation"></div>
+            <div class="chart-container">
+                <canvas id="tempDistributionChart"></canvas>
+           </div>
+        </div>
+
+        <div id="error" class="hidden error-message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
