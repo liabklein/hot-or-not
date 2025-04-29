@@ -1,6 +1,6 @@
 {
     "name": "Hot or Not",
-    "short_name": "Weather?",
+    "short_name": "Hot or not",
     "description": "Check how unusual today's temperature is compared to history.",
     "start_url": ".",
     "display": "standalone",
