@@ -353,7 +353,7 @@ function displayChart(historicalTemps, todayTemp, meanTemp, stdDevTemp) {
                                 content: `Avg: ${meanTemp.toFixed(1)}°F`,
                                 display: true,
                                 yValue: 1, // Anchor the label's reference point to y=1 (top of scale)
-                                yAdjust: -40,
+                                yAdjust: -30,
                                 // position: { x: 'top' , y: 'top'},
                                 // yAdjust: -95,
                                 // xAdjust: 0,
@@ -374,7 +374,7 @@ function displayChart(historicalTemps, todayTemp, meanTemp, stdDevTemp) {
                                  content: `+1σ: ${plusOneStdDev.toFixed(1)}°F`,
                                  display: true,
                                  yValue: 1, // Anchor to top of scale
-                                 yAdjust: -40,
+                                 yAdjust: -30,
                                  // position: { x: 'center'},
                                  // yAdjust: -95,
                                  xAdjust: 10, // Nudge right
@@ -395,7 +395,7 @@ function displayChart(historicalTemps, todayTemp, meanTemp, stdDevTemp) {
                                  content: `-1σ: ${minusOneStdDev.toFixed(1)}°F`,
                                  display: true,
                                  yValue: 1, // Anchor to top of scale
-                                 yAdjust: -40,
+                                 yAdjust: -30,
                                  // position: { x: 'center'},
                                  // yAdjust: -95,
                                  xAdjust: -10,// Nudge left
