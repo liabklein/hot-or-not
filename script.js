@@ -159,7 +159,7 @@ async function getWeatherAndAnalysis(lat, lon) {
         const zScore = (todayForecastHigh - mean) / stdDev;
 
         // 6. Determine Rating and Explanation
-        const { rating, explanation } = generateRatingAndExplanation(zScore, today.getMonth()); // Pass month for context
+        const { rating, explanation } = generateRatingAndExplanation(zScore, today); // Pass month for context
 
         // 7. Display Results
         displayResults(rating, explanation, todayForecastHigh, mean, stdDev, historicalValuesInWindow);
@@ -187,16 +187,23 @@ function calculateMeanAndStdDev(data) {
     return { mean, stdDev };
 }
 
-function getMonthContext(monthIndex) {
-    // Simple mapping from month index (0-11) to season/time context
-    const monthNames = ["early January", "mid-February", "early March", "mid-April", "late May", "mid-June",
-                        "early July", "mid-August", "late September", "mid-October", "early November", "mid-December"];
-    // Adjust phrasing based on the day of the month if needed, but this is simpler
-    // For April 22nd (index 3), it returns "mid-April"
-    return monthNames[monthIndex] || "this time of year";
+function getMonthContext(today) {
+    const options = { month: 'long' };
+    const currentMonthName = today.toLocaleString('en-US', options);
+    return getMonthQualifier(today.monthDay) + " " + currentMonthName;
 }
 
-function generateRatingAndExplanation(z, monthIndex) {
+function getMonthQualifier(monthDay) {
+    if (monthDay < 10) {
+        return "early";
+    } else if (monthDay >= 10 && monthDay < 22) {
+        return "mid";
+    } else {
+        return "late";
+    }
+}
+
+function generateRatingAndExplanation(z, today) {
     const absZ = Math.abs(z);
     let rating = "Average";
     let qualifier = "about average";
@@ -220,7 +227,7 @@ function generateRatingAndExplanation(z, monthIndex) {
     }
 
 
-    const timeContext = getMonthContext(monthIndex);
+    const timeContext = getMonthContext(today);
     const explanation = `It is ${qualifier} than average for ${timeContext}. The high temperature is ${absZ.toFixed(1)} standard deviations ${direction} normal for this time of year.`;
 
     return { rating, explanation };
